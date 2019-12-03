@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using FlyFoodGit.models;
+
 namespace FlyFoodGit.controllers
 {
     public class FlightController
@@ -14,8 +16,8 @@ namespace FlyFoodGit.controllers
             // TO DO
             throw new NotImplementedException();
         }
-        public static void BuyTicket()
-        {
+
+        public static bool BuyTickt(User user){
             // TO DO
             throw new NotImplementedException();
         }

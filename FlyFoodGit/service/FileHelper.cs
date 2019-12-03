@@ -2,6 +2,13 @@
 using System;
 using System.IO;
 
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace FlyFoodGit.service
 {
     public class FileHelper
@@ -37,15 +44,15 @@ namespace FlyFoodGit.service
             catch (Exception ex)
             {
                 Console.WriteLine("error: "+ex.Message);
-                StartPage.typeToStop();
+                StartPage.typeToContinue();
                 return false;
             }
         }
         
-        public static string[] ReadFile(Type classType)
+        public static List<string> ReadFile(Type classType)
         {
             VerifyFile(getPath(classType.Name));
-            return File.ReadAllLines(getPath(classType.Name));
+            return  new List<string>(File.ReadAllLines(getPath(classType.Name)));
         }
     }
 }

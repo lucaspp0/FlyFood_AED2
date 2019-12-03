@@ -32,7 +32,7 @@ opção: ";
                         Flight.ShowPanel();
                         break;
                     case "2":
-                        FlightController.BuyTicket();
+                        // FlightController.BuyTicket();
                         break;
                     case "3":
                         Program.userLogged.showHistory();
@@ -40,10 +40,11 @@ opção: ";
                     case "4":
                         Console.WriteLine("Volte sempre :)");
                         Program.userLogged = null;
+                        exitSystem = true;
                         break;
                     default:
                         Console.WriteLine("Opção inválida");
-                        StartPage.typeToStop();
+                        StartPage.typeToContinue();
                         break;
                 }
             }

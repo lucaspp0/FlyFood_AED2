@@ -63,13 +63,14 @@ opção: ";
                     case "5":
                         Console.WriteLine("Volte sempre :)");
                         Program.userLogged = null;
+                        exitSystem = true;
                         break;
                     default:
                         Console.WriteLine("Opção inválida");
-                        StartPage.typeToStop();
+                        StartPage.typeToContinue();
                         break;
                 }
-                StartPage.typeToStop();
+                StartPage.typeToContinue();
             }
         }
     }

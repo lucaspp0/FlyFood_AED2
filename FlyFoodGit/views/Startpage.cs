@@ -18,7 +18,7 @@ namespace FlyFoodGit.views
             return Console.ReadLine();
         }
 
-        public static void typeToStop()
+        public static void typeToContinue()
         {
             Console.WriteLine("digite algo para continuar: ");
             Console.ReadKey();
@@ -49,11 +49,13 @@ opção: ";
                         break;
                     case "3":
                         Console.WriteLine("Obrigado por usar o FlyFood");
+                        exitSystem = true;
                         break;
                     default:
                         Console.WriteLine("Opção inválida");
                         break;
                 }
+				typeToContinue();
             }
         }
 
@@ -61,11 +63,13 @@ opção: ";
         {
             string login = getUserInput("insira o seu login: ");
             string password = getUserInput("insira a sua senha: ");
-            User user = UserController.makeLogin(login: login, password: password);
+            User user = UserController.Login(login: login, password: password);
             if (user == null)
                 Console.WriteLine("Usuário não encontrado");
-            else
-                new UserPage().ShowMenu();
+            else{
+				Program.userLogged = user;
+				new UserPage().ShowMenu();
+			}
         }
 
         private void Register()
@@ -73,7 +77,7 @@ opção: ";
             string login = getUserInput("Insira o seu login: ");
             string password = getUserInput("Insira a sua senha: ");
             string name = getUserInput("Insira seu nome: ");
-            if (UserController.makeRegister(new User(name: name, login: login, password: password)))
+            if (UserController.Register(new User(name: name, login: login, password: password)))
                 Console.WriteLine("Usuário Cadastrado com sucesso");
             else
                 Console.WriteLine("Erro ao cadastrar usuário");
